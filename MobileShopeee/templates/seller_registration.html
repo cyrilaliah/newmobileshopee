@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seller Registration</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Main Container */
+    #seller-reg-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      margin-top: 80px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 600px;
+      background: #111;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+    }
+
+    .card-header {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .card-body {
+      padding: 15px 20px;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+      color: #bbb;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 6px;
+      font-size: 0.9rem;
+      border: 1px solid #444;
+      border-radius: 5px;
+      background: #222;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: #f5a623;
+    }
+
+    .btn-submit {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background: #444;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background: #ff3385;
+      color: #111;
+      transform: scale(1.05);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .card {
+        max-width: 90%;
+      }
+
+      .card-header {
+        font-size: 1rem;
+      }
+
+      .form-control {
+        font-size: 0.8rem;
+      }
+
+      .btn-submit {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+{% include 'navbar_user.html'%}
+
+  <!-- Main Container -->
+   
+  <div class="container" id="seller-reg-container">
+    <div class="card">
+      <div class="card-header">
+        Seller Registration
+      </div>
+      <div class="card-body">
+        <form action="{{ url_for('seller_registration') }}" method="POST">
+          <!-- Row 1 -->
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Enter your first name" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Enter your last name" required>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="Enter your phone number" required>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" class="form-control" placeholder="Enter your address" required>
+          </div>
+          <div class="form-group">
+            <label for="postalCode">Postal Code</label>
+            <input type="text" id="postalCode" name="postalCode" class="form-control" placeholder="Enter your postal code" required>
+          </div>
+
+          <!-- Row 4 -->
+          <div class="form-group">
+            <label for="businessName">Business Name</label>
+            <input type="text" id="businessName" name="businessName" class="form-control" placeholder="Enter your business name" required>
+          </div>
+          <div class="form-group">
+            <label for="description">Business Description</label>
+            <textarea id="description" name="description" class="form-control" rows="2" placeholder="Describe your business" required></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn-submit">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
